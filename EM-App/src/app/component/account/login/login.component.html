@@ -1,0 +1,73 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8">
+            <header>
+                <nav class="mynavbar" style="color: white;font-size: large;">Login</nav>
+            </header>
+            <!-- <header class="">
+                <nav style="color: white;font-size: large;background-color: darkcyan;">Login</nav>
+            </header> -->
+            
+           <br>
+           <br>
+           <br>
+            <form [formGroup]="LoginForm">
+                <div class="form-group">
+                    <label for="loginUser" class="for">E-mail</label>
+                    <input type="text" class="form-control" formControlName="email"
+                        [ngClass]="{'is-invalid':submitted && LoginForm.controls['email'].errors}">
+
+                    <div *ngIf="submitted && LoginForm.controls['email'].errors" class="text-danger">
+                        <div *ngIf="submitted && LoginForm.controls['email'].errors['required']">
+                            [Email] é obrigatório !
+                        </div>
+                        <div *ngIf="submitted && LoginForm.controls['email'].errors['minlength']">
+                            [Email] mínimo 03 caracteres !
+                        </div>
+                        <div *ngIf="submitted && LoginForm.controls['email'].errors['maxlength']">
+                            [Email] máximo 14 caracteres !
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword" class="for">Senha</label>
+                    <input type="password" class="form-control" formControlName="password"
+                        [ngClass]="{'is-invalid':submitted && LoginForm.controls['password'].errors}">
+
+                    <div *ngIf="submitted && LoginForm.controls['password'].errors" class="text-danger">
+                        <div *ngIf="submitted && LoginForm.controls['password'].errors['required']">
+                            [Senha] é obrigatório !
+                        </div>
+                    </div>
+                </div>
+                
+                <br>
+                <div>
+                    <button type="button" class="btn btn-primary" (click)="onLogin(LoginForm.value)">Login</button>
+                    <button type="button" class="btn btn-link" routerLink="/create-account">Criar conta</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- <h2 class="text-center">Entrar</h2>
+
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+    <div class="form-group">
+        <label>E-mail</label>
+        <input class="form-control" type="email" name="email" id="email" [(ngModel)]="loginFrm.email" required>
+    </div>
+
+    <div class="form-group">
+        <label>Senha</label>
+        <input class="form-control" type="password" name="password" id="password" [(ngModel)]="loginFrm.password"
+            required>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="form.form.invalid">Entrar</button>
+    <button class="btn btn-link" type="button" [routerLink]="['/create-account']">Criar conta</button>
+</form> -->

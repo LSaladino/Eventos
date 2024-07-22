@@ -1,0 +1,147 @@
+<div class="row">
+
+    <!-- TITLE -->
+    <div class="col-sm-4" *ngIf="oSelectedEvent">
+        <div class="row">
+            <div class="mr-auto">
+                <app-title [p_title]="oSelectedEvent.id == 0 ? 'Novo evento': 'Seq.: ' + oSelectedEvent.id"></app-title>
+            </div>
+            <div class="mt-1" style="text-align: right;">
+                <button class="btn btn-outline-danger" (click)="onCloseForm()">Fechar</button>
+            </div>
+        </div>
+
+
+        <!-- FORM -->
+        <form [formGroup]="eventForm" (ngSubmit)="onEventSubmit()">
+            <div class="form-group">
+                <label for="forGroupExampleInput1">Titulo</label>
+                <input type="text" class="form-control" formControlName="title"
+                    [ngClass]="{'is-invalid':submitted && eventForm.controls['title'].errors}">
+
+                <div *ngIf="submitted && eventForm.controls['title'].errors" class="text-danger">
+                    <div *ngIf="submitted && eventForm.controls['title'].errors['required']">
+                        [Titulo] é obrigatório !
+                    </div>
+                    <div *ngIf="submitted && eventForm.controls['title'].errors['minlength']">
+                        [Titulo] deve ter no mínimo 02 caracteres !
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="forGroupExampleInput2">Descrição</label>
+                <input type="text" class="form-control" formControlName="description"
+                    [ngClass]="{'is-invalid':submitted && eventForm.controls['description'].errors}">
+
+                <div *ngIf="submitted && eventForm.controls['description'].errors" class="text-danger">
+                    <div *ngIf="submitted && eventForm.controls['description'].errors['required']">
+                        [Descrição] é obrigatório !
+                    </div>
+                    <div *ngIf="submitted && eventForm.controls['description'].errors['minlength']">
+                        [Descrição] deve ter no mínimo 02 caracteres !
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="forGroupExampleInput2">Data</label>
+                <input type="text" class="form-control" formControlName="date"
+                    [ngClass]="{'is-invalid':submitted && eventForm.controls['date'].errors}">
+
+                <div *ngIf="submitted && eventForm.controls['date'].errors" class="text-danger">
+                    <div *ngIf="submitted && eventForm.controls['date'].errors['required']">
+                        [Data] é obrigatório !
+                    </div>
+                    <div *ngIf="submitted && eventForm.controls['date'].errors['minlength']">
+                        [Data] deve ter no mínimo 02 caracteres !
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="forGroupExampleInput2">Hora</label>
+                <input type="text" class="form-control" formControlName="hour"
+                    [ngClass]="{'is-invalid':submitted && eventForm.controls['hour'].errors}">
+
+                <div *ngIf="submitted && eventForm.controls['hour'].errors" class="text-danger">
+                    <div *ngIf="submitted && eventForm.controls['hour'].errors['required']">
+                        [Hora] é obrigatório !
+                    </div>
+                    <div *ngIf="submitted && eventForm.controls['hour'].errors['minlength']">
+                        [Hora] deve ter no mínimo 02 caracteres !
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="forGroupExampleInput2">Local</label>
+                <input type="text" class="form-control" formControlName="place"
+                    [ngClass]="{'is-invalid':submitted && eventForm.controls['place'].errors}">
+
+                <div *ngIf="submitted && eventForm.controls['place'].errors" class="text-danger">
+                    <div *ngIf="submitted && eventForm.controls['place'].errors['required']">
+                        [Local] é obrigatório !
+                    </div>
+                    <div *ngIf="submitted && eventForm.controls['place'].errors['minlength']">
+                        [Local] deve ter no mínimo 02 caracteres !
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <hr>
+                <div style="float:left">
+                    <!-- <button class="btn btn-success" [disabled]="!alunoForm.valid">Gravar</button> -->
+                    <!-- I USE FORMS VALIDATIONS -->
+                    <button class="btn btn-success">Gravar</button>
+                </div>
+                <div style="float:right">
+                    <button class="btn btn-warning" (click)="clearEventForm()">Limpar</button>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+
+
+
+
+    <!-- TABLE -->
+    <!-- <div class="col-sm-6" *ngIf="!alunoSelecionado"> sempre irá aparecer a listagem -->
+    <div [ngClass]="{'col-sm-8': oSelectedEvent, 'col-sm-12': !oSelectedEvent}">
+        <app-title [p_title]="v_title">
+            <button class="btn btn-success" style="float:right" (click)="onNewEvent()">Novo Evento</button>
+        </app-title>
+        <table class="table table-light table-hover">
+            <thead class="table-primary">
+                <tr>
+                    <th scope="col">Sequencial</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Local</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let v_Event of oEvents">
+                    <td scope="row">{{v_Event.id}}</td>
+                    <td>{{v_Event.title}}</td>
+                    <td>{{v_Event.description}}</td>
+                    <td>{{v_Event.place}}</td>
+                    <td>{{v_Event.date}}</td>
+                    <td>{{v_Event.hour}}</td>
+                    <td>
+                        <button class="text-dark btn btn-sm btn-outline-warning"
+                            (click)="onEventSelect(v_Event)">Detalhe</button>
+                        <button class="btn btn-sm btn-outline-danger" (click)="onDelete(v_Event)">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

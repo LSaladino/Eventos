@@ -1,0 +1,8 @@
+.mynavbar{
+    background-color: darkcyan;
+    color: white;
+}
+
+.nav{
+    nav-up: fixed-top
+}
