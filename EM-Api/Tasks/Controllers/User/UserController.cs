@@ -46,8 +46,6 @@ namespace EventApi.Controllers
             return Unauthorized();
         }
 
-        //-----------------------------------------------------------------------------------------
-
         [HttpPost("Auth")]
         public async Task<ActionResult<string>> Login(User user)
         {
@@ -59,8 +57,6 @@ namespace EventApi.Controllers
             return Unauthorized();
         }
 
-
-        //-----------------------------------------------------------------------------------------
         [HttpPost("register")]
         [ProducesResponseType(typeof(UserView), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]

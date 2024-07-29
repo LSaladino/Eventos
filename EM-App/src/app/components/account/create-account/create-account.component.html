@@ -1,0 +1,91 @@
+<div class="container-fluid">
+    
+    <div class="row">
+        <div class="col-sm-8">
+            <header class="">
+                <nav style="color: white;font-size: large;background-color: darkcyan;">Create Account</nav>
+            </header>
+           <br>
+           <br>
+           <br>
+            <form [formGroup]="CreateAccountForm">
+                <div class="form-group">
+                    <label for="loginUser" class="for">Email</label>
+                    <input type="text" class="form-control" formControlName="email"
+                        [ngClass]="{'is-invalid':submitted && CreateAccountForm.controls['email'].errors}">
+
+                    <div *ngIf="submitted && CreateAccountForm.controls['email'].errors" class="text-danger">
+                        <div *ngIf="submitted && CreateAccountForm.controls['email'].errors['required']">
+                            [Email] é obrigatório !
+                        </div>
+                        <div *ngIf="submitted && CreateAccountForm.controls['email'].errors['minlength']">
+                            [Email] mínimo 03 caracteres !
+                        </div>
+                        <div *ngIf="submitted && CreateAccountForm.controls['email'].errors['maxlength']">
+                            [Email] máximo 14 caracteres !
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword" class="for">Senha</label>
+                    <input type="password" class="form-control" formControlName="password"
+                        [ngClass]="{'is-invalid':submitted && CreateAccountForm.controls['password'].errors}">
+
+                    <div *ngIf="submitted && CreateAccountForm.controls['password'].errors" class="text-danger">
+                        <div *ngIf="submitted && CreateAccountForm.controls['password'].errors['required']">
+                            [Senha] é obrigatório !
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lblName" class="for">Nome</label>
+                    <input type="text" class="form-control" formControlName="name"
+                        [ngClass]="{'is-invalid':submitted && CreateAccountForm.controls['name'].errors}">
+
+                    <div *ngIf="submitted && CreateAccountForm.controls['name'].errors" class="text-danger">
+                        <div *ngIf="submitted && CreateAccountForm.controls['name'].errors['required']">
+                            [Nome] é obrigatório !
+                        </div>
+                        <div *ngIf="submitted && CreateAccountForm.controls['name'].errors['minlength']">
+                            [Nome] mínimo 03 caracteres !
+                        </div>
+                        <div *ngIf="submitted && CreateAccountForm.controls['name'].errors['maxlength']">
+                            [Nome] máximo 50 caracteres !
+                        </div>
+                    </div>
+                </div>
+                
+                <br>
+                <div>
+                    <button type="button" class="btn btn-primary" (click)="onCreateAccount(CreateAccountForm.value)">Criar minha conta</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- <h2 class="text-center">Criar minha conta</h2>
+
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+    <div class="form-group">
+        <label>Nome</label>
+        <input class="form-control" type="email" name="email" id="email" [(ngModel)]="accountFrm.name" required>
+    </div>
+
+    <div class="form-group">
+        <label>E-mail</label>
+        <input class="form-control" type="email" name="email" id="email" [(ngModel)]="accountFrm.email" required>
+    </div>
+
+    <div class="form-group">
+        <label>Senha</label>
+        <input class="form-control" type="password" name="password" id="password" [(ngModel)]="accountFrm.password"
+            required>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="form.form.invalid">Criar conta</button>
+</form> -->

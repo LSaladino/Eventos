@@ -33,7 +33,7 @@ namespace Data.Repository
         public async Task<Customer> GetCustomerByIdAsync(int id)
         {
             var customer = await _myContext.Customers
-                .Include(ev => ev.Events)
+                //.Include(ev => ev.Events)
                 .SingleOrDefaultAsync(ev => ev.Id == id);
 
             return customer!;

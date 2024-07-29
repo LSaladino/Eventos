@@ -2,6 +2,6 @@
 {
     public class UpdateCustomer : NewCustomer
     {
-        public new int Id { get; set; }
+        public int Id { get; set; }
     }
 }

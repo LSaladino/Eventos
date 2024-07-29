@@ -26,11 +26,11 @@ namespace EventApi.Controllers.Event
         {
             var events = await _eventManager.GetAllEventsAsync();
 
-            if (events.Any())
+            if (events == null)
             {
-                return Ok(events);
+                return NotFound();
             }
-            return NotFound();
+            return Ok(events);
         }
 
         [HttpGet("{id}")]

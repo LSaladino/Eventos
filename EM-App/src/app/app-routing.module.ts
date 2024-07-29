@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './component/layout/home/home.component';
-import { CustomerComponent } from './component/customer/customer.component';
-import { SubscribeComponent } from './component/subscribe/subscribe.component';
-import { EventComponent } from './component/event/event.component';
-import { ListeventComponent } from './component/listevent/listevent.component';
-import { AuthenticationComponent } from './component/layout/authentication/authentication.component';
-import { LoginComponent } from './component/account/login/login.component';
-import { CreateAccountComponent } from './component/account/create-account/create-account.component';
+import { HomeComponent } from './components/layout/home/home.component';
+import { ListeventComponent } from './components/listevent/listevent.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { EventtComponent } from './components/eventt/eventt/eventt.component';
+import { SubscribeComponent } from './components/subscribe/subscribe.component';
 import { authGuard } from './guard/account/shared/auth.guard';
+import { AuthenticationComponent } from './components/layout/authentication/authentication.component';
+import { LoginComponent } from './components/account/login/login.component';
+import { CreateAccountComponent } from './components/account/create-account/create-account.component';
 
 const routes: Routes = [
   {
     path: '', component: HomeComponent,
     children: [
       { path: '', component: ListeventComponent },
-      { path: 'customer', component: CustomerComponent },
-      { path: 'event', component: EventComponent },
+      { path: '', component: CreateAccountComponent },
+      { path: 'event', component: EventtComponent },
       { path: 'subscribe', component: SubscribeComponent }
     ],
     canActivate: [authGuard]

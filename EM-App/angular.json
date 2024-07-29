@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "EM-App": {
+    "em-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -25,6 +25,9 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "node_modules/ngx-toastr/toastr.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -60,10 +63,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "EM-App:build:production"
+              "browserTarget": "em-app:build:production"
             },
             "development": {
-              "browserTarget": "EM-App:build:development"
+              "browserTarget": "em-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +74,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "EM-App:build"
+            "browserTarget": "em-app:build"
           }
         },
         "test": {
@@ -87,6 +90,8 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "node_modules/ngx-toastr/toastr.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -96,6 +101,6 @@
     }
   },
   "cli": {
-    "analytics": "09e6c18a-f319-41f0-a080-0ace75e70c89"
+    "analytics": "350f9bdb-7a7d-4dad-a2b2-062183560f67"
   }
 }

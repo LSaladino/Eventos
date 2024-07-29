@@ -1,0 +1,128 @@
+<nav class="navbar navbar-expand-lg" style="background-color: darkcyan;">
+    <div class="container">
+        <div class="container-fluid">
+            <a routerLink="dashboard" class="navbar-brand">Management of Events</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav" dropdown>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="button-basic" dropdownToggle role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Usuários
+                            </a>
+                            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu">
+                                <li><a class="dropdown-item" routerLink="create-account">Criar conta</a></li>
+                                <li><a class="dropdown-item" href="#">Gerenciar</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav" dropdown>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="button-basic" dropdownToggle role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Eventos
+                            </a>
+                            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu">
+                                <li><a class="dropdown-item" routerLink="event">Manutenção</a></li>
+                                <li><a class="dropdown-item" href="#">Gerenciar</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </ul>
+
+                <ul class="navbar-nav" dropdown>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="button-basic" dropdownToggle role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Opções
+                        </a>
+                        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu">
+                            <li><a class="dropdown-item" routerLink="perfil">Perfil</a></li>
+                            <li><a class="dropdown-item" href="#">Sair</a></li>
+                            <li><a class="dropdown-item" href="#">Outros</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section>
+    <main class="container">
+        <router-outlet></router-outlet>
+    </main>
+</section>
+
+<footer class="mt-2 p-2 text-center">
+    <a href="#">Home</a>
+</footer>
+
+
+
+
+
+
+
+
+
+
+<!-- <main class="container">
+    <nav class="navbar navbar-expand-lg" style="background-color:darkcyan;">
+        <div class="container">
+            <div class="container-fluid">
+                <a routerLink="dashboard" class="navbar-brand">Gerenciar Eventos</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a routerLink="customer" routerLinkActive="active" class="nav-link">Usuários</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="event" class="nav-link" routerLinkActive="active">Eventos</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a routerLink="subscribe" routerLinkActive="active" class="nav-link">Inscrição</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav" dropdown>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="button-basic" dropdownToggle role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown link
+                            </a>
+                            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu">
+                                <li><a class="dropdown-item" routerLink="perfil">Perfil</a></li>
+                                <li><a class="dropdown-item" href="#">Sair</a></li>
+                                <li><a class="dropdown-item" href="#">Outros</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <router-outlet></router-outlet>
+</main>
+<section>
+
+</section>
+
+<footer class="mt-2 p-2 text-center">
+    <a href="#">Home</a>
+</footer> -->

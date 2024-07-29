@@ -1,10 +1,12 @@
 export class Login {
 
-constructor(){
-    this.email = '';
-    this.password = ';'
-}
+    constructor() {
+        this.id = 0;
+        this.email = '';
+        this.password = '';
+    }
 
-    email: string = '';
-    password: string = ';'
+    id: number;
+    email: string;
+    password: string;
 }
